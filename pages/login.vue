@@ -97,8 +97,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'LoginPage',
   data: () => ({
@@ -140,7 +138,7 @@ export default {
     },
     login () {
       // console.log(`logging in with credentials   -> email: ${this.email} | pass: ${this.password}`)
-      axios
+      this.$axios
         .post('https://gym-api-iot.herokuapp.com/api/auth/local', {
           identifier: this.email,
           password: this.password
