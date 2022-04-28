@@ -47,8 +47,24 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
+
+  auth: {
+    strategies: {
+      auth0: {
+        domain: 'dev-im7aoy9v.us.auth0.com',
+        clientId: 'h8JCO7kp8QNOg9GmBzyH6m9T4L447Hbe',
+        audience: 'https://dev-im7aoy9v.us.auth0.com/api/v2/',
+        logoutRedirectUri: 'http://localhost:3000/login'
+      }
+    }
+  },
+
+  router: {
+    middleware: ['auth']
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
