@@ -98,7 +98,7 @@
 
 <script>
 export default {
-  name: 'LoginPage',
+  name: 'LoginPage2',
   data: () => ({
     newUser: false,
     valid: false,

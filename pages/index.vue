@@ -52,6 +52,11 @@ export default {
     return {
       detail: 0
     }
+  },
+  methods: {
+    logout () {
+      this.$auth.logout()
+    }
   }
 }
 </script>
