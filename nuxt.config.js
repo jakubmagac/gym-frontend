@@ -47,7 +47,23 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    [
+      '@nuxtjs/axios',
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyCsaX8bBmxpXGejqzVWiN_q18h-cBd99zY',
+          authDomain: 'gym-api-50896.firebaseapp.com',
+          projectId: 'gym-api-50896',
+          storageBucket: 'gym-api-50896.appspot.com',
+          messagingSenderId: '483371102865',
+          appId: '1:483371102865:web:d309e7221c111fb0a1c530'
+        },
+        services: {
+          auth: true // Just as example. Can be any other service.
+        }
+      }
+    ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

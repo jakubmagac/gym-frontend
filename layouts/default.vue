@@ -1,7 +1,7 @@
 <template>
-  <v-app dark>
+  <v-app dark class="cover pa-0 ma-0">
     <v-main>
-      <v-container>
+      <v-container fluid>
         <Nuxt />
       </v-container>
     </v-main>
@@ -16,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.cover {
+  background-image: url("~assets/background.jpeg");
+}
+</style>
