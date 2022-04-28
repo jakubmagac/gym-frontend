@@ -6,9 +6,6 @@
       <v-btn @click="logout">
         Logout
       </v-btn>
-      <v-btn @click="logUserInfo">
-        Log user info
-      </v-btn>
     </v-col>
   </v-row>
 </template>
