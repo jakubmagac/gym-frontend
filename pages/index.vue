@@ -1,48 +1,28 @@
 <template>
-  <v-container fluid>
-    <v-row justify="center" align="center">
-      <v-col cols="12">
-        <h1 style="color: #fff; font-size: 3rem;" class="text-center mt-8">Dashboard</h1>
-        <v-container fluid>
-          <v-row v-if="detail === 0">
-            <v-col cols="6">
-              <div class="box" @click="detail = 1">
-                <h2>Room 1</h2>
-              </div>
-            </v-col>
-            <v-col cols="6">
-              <div class="box" @click="detail = 2">
-                <h2>Room 2</h2>
-              </div>
-            </v-col>
-            <v-col cols="6">
-              <div class="box" @click="detail = 3">
-                <h2>Room 3</h2>
-              </div>
-            </v-col>
-            <v-col cols="6">
-              <div class="box" @click="detail = 4">
-                <h2>Room 4</h2>
-              </div>
-            </v-col>
-          </v-row>
-          <v-row v-else>
-            <v-col cols="12">
-              <div class="box">
-                <h1>Capacity</h1>
-                <h1>1 / 100</h1>
-              </div>
-              <div class="text-center mt-8">
-                <v-icon color="white" large @click="detail = 0">
-                  mdi-arrow-left-circle
-                </v-icon>
-              </div>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-row justify="center" align="center">
+    <v-col cols="12" sm="10" md="8" class="text-center">
+      <v-row justify="center" align="center" class="mt-6">
+        <v-col>
+          <GymWidget :number="1" :door-number="'012'" :occupation="gyms[0].length" :capacity="5" />
+        </v-col>
+        <v-col>
+          <GymWidget :number="2" :door-number="'013'" :occupation="gyms[1].length" :capacity="4" />
+        </v-col>
+      </v-row>
+      <v-row justify="center" align="center">
+        <v-col>
+          <GymWidget :number="3" :door-number="'014'" :occupation="gyms[2].length" :capacity="4" />
+        </v-col>
+        <v-col>
+          <GymWidget :number="4" :door-number="'015'" :occupation="gyms[3].length" :capacity="4" />
+        </v-col>
+      </v-row>
+
+      <v-btn style="margin-top: 3em" color="error" @click="logout">
+        Logout
+      </v-btn>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -53,6 +33,11 @@ export default {
       detail: 0
     }
   },
+  computed: {
+    gyms () {
+      return this.$store.state.gyms
+    }
+  },
   methods: {
     logout () {
       this.$auth.logout()
@@ -60,16 +45,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  .box {
-    background-color: #333;
-    padding: 2em;
-    text-align: center;
-    color: #fff;
-
-    :hover {
-      cursor: pointer;
-    }
-  }
-</style>
