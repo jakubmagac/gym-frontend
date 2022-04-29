@@ -18,7 +18,7 @@
         </v-col>
       </v-row>
 
-      <v-btn style="margin-top: 3em" @click="logout" color="error">
+      <v-btn style="margin-top: 3em" color="error" @click="logout">
         Logout
       </v-btn>
     </v-col>

@@ -63,7 +63,7 @@ export default {
 <style lang="scss" scoped>
 .gym-widget-card {
   margin: 0 5em;
-  font-family: 'Poppins';
+  font-family: 'Poppins', serif;
   text-align: center;
   .title {
     font-weight: 700;

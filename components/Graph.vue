@@ -16,6 +16,14 @@ export default {
     config: {
       type: Object,
       default: null
+    },
+    graphData: {
+      type: Array,
+      default: null
+    },
+    graphLabel: {
+      type: String,
+      default: 'Value'
     }
   },
   mounted () {
@@ -23,11 +31,11 @@ export default {
     const myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        // labels: [1,2,3,4,5]
+        labels: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'],
         datasets: [
           {
-            label: 'Nameraná hodnota',
-            data: [200, 300, 400],
+            label: this.graphLabel,
+            data: this.graphData,
             fill: false,
             borderColor: '#1DD1A1',
             tension: 0.1
@@ -49,21 +57,6 @@ export default {
             }
           }]
         }
-        // Core options
-        // aspectRatio: 4 / 3,
-        // cutoutPercentage: 32,
-        // layout: {
-        //   padding: 32
-        // },
-        // elements: {
-        //   line: {
-        //     fill: false
-        //   },
-        //   point: {
-        //     hoverRadius: 7,
-        //     radius: 5
-        //   }
-        // }
       }
     })
     console.log(myChart)

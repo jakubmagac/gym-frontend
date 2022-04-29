@@ -1,8 +1,10 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <v-row>
       <v-col cols="12">
-        <h1 class="text-center" style="color: #fff;">Zoznam Userov</h1>
+        <h1 class="text-center" style="color: #fff;">
+          User List
+        </h1>
       </v-col>
     </v-row>
     <v-row>
@@ -17,15 +19,39 @@
     </v-row>
     <v-row>
       <v-col cols="4">
-        <h1 class="text-center" style="color: #fff;">Teplota</h1>
+        <h1 class="text-center" style="color: #fff;">
+          Temperature
+        </h1>
         <div style="background-color: #fff">
-          <graph :chartID="'graf'"/>
+          <graph
+            :chartID="'graf'"
+            :graph-data="[23.12, 23.46, 24.02, 23.46, 23.42, 23.85, 24.64, 25.98, 26.37, 26.68, 26.55, 26.56, 26.21]"
+            :graph-label="'Temperature'"
+          />
         </div>
       </v-col>
       <v-col cols="4">
-        <h1 class="text-center" style="color: #fff;">Vlhkosť</h1>
+        <h1 class="text-center" style="color: #fff;">
+          Humidity
+        </h1>
         <div style="background-color: #fff">
-          <graph :chartID="'graf-hum'"/>
+          <graph
+            :chartID="'graf-hum'"
+            :graph-data="[23.12, 23.46, 24.02, 23.46, 23.42, 23.85, 24.64, 25.98, 26.37, 26.68, 26.55, 26.56, 26.21]"
+            :graph-label="'Humidity'"
+          />
+        </div>
+      </v-col>
+      <v-col cols="4">
+        <h1 class="text-center" style="color: #fff;">
+          Occupation
+        </h1>
+        <div style="background-color: #fff">
+          <graph
+            :chartID="'graf-occ'"
+            :graph-data="[1, 2, 2, 0, 1, 1, 3, 4, 5, 4, 3, 3, 4]"
+            :graph-label="'Occupation'"
+          />
         </div>
       </v-col>
     </v-row>
@@ -70,6 +96,9 @@ export default {
   computed: {
     users () {
       return this.$store.state.gyms[this.$route.params.id - 1]
+    },
+    graphData () {
+      return this.$store.state.gymData
     }
   },
   mounted () {
