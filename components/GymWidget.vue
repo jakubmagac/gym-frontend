@@ -1,7 +1,9 @@
 <template>
   <v-card class="gym-widget-card text-center">
     <v-card-title class="title">
-      Gym {{ number }}
+      <h3 style="margin: 0 auto;">
+        Gym {{ number }}
+      </h3>
     </v-card-title>
     <v-card-subtitle class="subtitle">
       Door {{ doorNumber }}
@@ -11,9 +13,11 @@
       {{ occupation }}/{{ capacity }}
     </v-card-text>
     <v-card-actions class="justify-end">
-      <v-btn class="info-button primary">
-        Info
-      </v-btn>
+      <nuxt-link :to="`/${number}`">
+        <v-btn class="info-button primary">
+          Info
+        </v-btn>
+      </nuxt-link>
     </v-card-actions>
   </v-card>
 </template>
@@ -59,6 +63,8 @@ export default {
 <style lang="scss" scoped>
 .gym-widget-card {
   margin: 0 5em;
+  font-family: 'Poppins';
+  text-align: center;
   .title {
     font-weight: 700;
   }
